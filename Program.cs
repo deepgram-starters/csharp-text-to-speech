@@ -266,7 +266,11 @@ app.MapPost("/api/text-to-speech", async (HttpRequest request) =>
             throw new InvalidOperationException("No audio stream returned from Deepgram");
         }
 
-        // Read stream to byte array
+        // Read stream to byte array (reset position in case SDK consumed it)
+        if (response.Stream.CanSeek)
+        {
+            response.Stream.Position = 0;
+        }
         using var ms = new MemoryStream();
         await response.Stream.CopyToAsync(ms);
         var audioBytes = ms.ToArray();
