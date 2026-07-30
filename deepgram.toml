@@ -6,7 +6,7 @@ repository = "https://github.com/deepgram-starters/csharp-text-to-speech"
 useCase = "text-to-speech"
 language = "csharp"
 framework = "dotnet"
-sdk = "6.6.1"
+sdk = "6.9.0"
 tags = ["text-to-speech", "tts", "audio-generation", "csharp", "dotnet"]
 
 # Check prerequisites
